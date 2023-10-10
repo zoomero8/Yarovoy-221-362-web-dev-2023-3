@@ -1,5 +1,6 @@
 <?php
 $pageTitle = "Аутентификация";
+$seconds = date('s');
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +11,18 @@ $pageTitle = "Аутентификация";
     <link href="../css/style_autentication.css" rel="stylesheet">
 </head>
 <body>
-    <a href="index.php" class="back-to-home-link_1">На главную</a>
+    <ul>
+    <li><a href="<?php  
+            $name='На главную';
+            $link='index.php';
+            $current_page=true;
+            echo $link;
+            ?>"<?php
+            if ($current_page) echo ' class="back-to-home-link_1"'; 
+            ?>><?php
+            echo $name;
+            ?></a></li>
+            </ul>
     <form method="POST" action="https://httpbin.org/post">
         <label for="username">Логин:</label>
         <input type="text" id="username" name="username" required>

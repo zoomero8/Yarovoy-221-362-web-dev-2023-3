@@ -1,6 +1,7 @@
 <?php
 $seconds = date('s');
-$imageClass = ($seconds % 2 == 0) ? 'image/CSS_pic.jpg' : 'image/CSS_2.png';
+$imageClass1 = ($seconds % 2 == 0) ? 'image/CSS_pic_1.jpg' : 'image/CSS_pic_2.png';
+$imageClass2 = ($seconds % 2 == 0) ? 'image/CSS_pic_3.jpeg' : 'image/CSS_pic_5.jpg';
 $pageTitle = 'CSS';
 
 $infotable = array(
@@ -24,25 +25,31 @@ $infotable = array(
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap" rel="stylesheet">
 </head>
 
-
 <body>
     <header>
         <nav>
             <ul>
-                <?php
-                $menuItems = [
-                    ["Таблица", "#section1"],
-                    ["Фото", "#section2"],
-                    ["Текст", "#section3"],
-                    ["Аутентификация", "autentication.php"],
-                    ["Обратная связь", "feedback.php"]
-                ];
+            <li><a href="<?php
+            $name='Аутентификация';
+            $link='autentication.php';
+            $current_page=true;
+            echo $link;
+            ?>"<?php
+            if ($current_page) echo ' class="selected-menu"'; 
+            ?>><?php
+            echo $name;
+            ?></a></li>
 
-                foreach ($menuItems as $item) {
-                    echo '<li><a href="' . $item[1] . '">' . $item[0] . '</a></li>';
-                    echo '<li class="divider">|</li>';
-                }
-                ?>
+            <li><a href="<?php  
+            $name='Обратная связь';
+            $link='feedback.php';
+            $current_page=true;
+            echo $link;
+            ?>"<?php
+            if ($current_page) echo ' class="selected-menu"'; 
+            ?>><?php
+            echo $name;
+            ?></a></li>
             </ul>
         </nav>
     </header>
@@ -64,10 +71,13 @@ $infotable = array(
                 <?php endforeach; ?>
             </table>
 
-
     <h2 id="section2">Фото</h2>
     <div style="display: flex; justify-content: center;">
-    <img src=<?php echo $imageClass; ?> alt="car" width="900px" height="600px">
+    <img src=<?php echo $imageClass1; ?> alt="CSS" width="900px" height="600px">
+    </div>
+
+    <div style="display: flex; justify-content: center;">
+    <img src=<?php echo $imageClass2; ?> alt="CSS" width="900px" height="600px">
     </div>
 
     <h2 id="section3">Текст</h2>

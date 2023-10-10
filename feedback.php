@@ -1,5 +1,6 @@
 <?php
 $pageTitle = "Форма обратной связи";
+$seconds = date('s');
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +11,18 @@ $pageTitle = "Форма обратной связи";
     <link rel="stylesheet" type="text/css" href="../css/style_feedback.css">
 </head>
 <body>
-    <a href="index.php" class="back-to-home-link">На главную</a>
+    <ul>
+    <li><a href="<?php  
+            $name='На главную';
+            $link='index.php';
+            $current_page=true;
+            echo $link;
+            ?>"<?php
+            if ($current_page) echo ' class="back-to-home-link"'; 
+            ?>><?php
+            echo $name;
+            ?></a></li>
+            </ul>
     <form method="POST" action="https://httpbin.org/post" enctype="multipart/form-data">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
